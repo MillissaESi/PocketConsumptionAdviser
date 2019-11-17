@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=11' />
+    <title>Docbox</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='css/base.css' rel='stylesheet' />
+    <link href='css/style.css' rel='stylesheet' />
+    <link href='css/railscasts.css' rel='stylesheet' />
+  </head>
+  <body>
+    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="982901666"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"><div class="small pad0x quiet space-top1" data-reactid="6">Introduction</div><a href="#our-api" class="line-height15 pad0x pad00y quiet block " data-reactid="7">Our API</a><div class="small pad0x quiet space-top1" data-reactid="8">Example</div><a href="#pocket-consumption-adviser" class="line-height15 pad0x pad00y quiet block " data-reactid="9">Pocket Consumption Adviser</a></div></div><div class="space-left16" data-reactid="10"><div class="" data-reactid="11"><div class="clearfix" data-reactid="12"><div data-title="Our API" class="keyline-top section contain clearfix " data-reactid="13"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="14"><h2 id="our-api">Our API</h2>
+<p>Welcome to Pocket Consumption Adviser! This is our API documentation</p>
+</div></div><div data-title="Pocket Consumption Adviser" class="keyline-top section contain clearfix " data-reactid="15"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="16"><h2 id="pocket-consumption-adviser">Pocket Consumption Adviser</h2>
+<p>This is our high-quality API. We use this API to request the
+server to get the best recommendation to reduce the food waste</p>
+</div></div><div data-title="Get the recommendation for a given product" class="keyline-top section contain clearfix " data-reactid="17"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="18"><h3 id="get-the-recommendation-for-a-given-product">Get the recommendation for a given product</h3>
+<p>Get the recommendation for the current user for a given product.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product</code></td>
+<td>(required) the id of the product</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>(required) (from_scanner, from_new_list, from_online_purchase)</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="19"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/pca/v1/recommendations/<span class="strong">{product}</span>/<span class="strong">{origin}</span></div>
+    </div>
+<h4 id="example-request">Example request</h4>
+<pre class='hljs'>$ curl -H <span class="hljs-string">"Authorization: OAuth &lt;ACCESS_TOKEN&gt;"</span> https://pocket-consumption-adviser.com/pcas/v1/recommendations/{product}/{origin}</pre>
+<h4 id="example-response">Example response</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{user}"</span>,
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{recommendation_id}"</span>,
+    <span class="hljs-attr">"product"</span>: <span class="hljs-string">"{product}"</span>,
+    <span class="hljs-attr">"quantity"</span>: <span class="hljs-string">"{quantity}"</span>,
+    <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>
+}</pre>
+</div></div><div data-title="Get a question about a given product" class="keyline-top section contain clearfix " data-reactid="20"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="21"><h3 id="get-a-question-about-a-given-product">Get a question about a given product</h3>
+<p>Get a question for the the current user about a given product.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>product</code></td>
+<td>(required) the id of the product</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>(required) (from_scanner, from_new_list, from_online_purchase)</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="22"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/pca/v1/questions/<span class="strong">{product}</span>/<span class="strong">{origin}</span></div>
+    </div>
+<h4 id="example-request-1">Example request</h4>
+<pre class='hljs'>$ curl -H <span class="hljs-string">"Authorization: OAuth &lt;ACCESS_TOKEN&gt;"</span> https://pocket-consumption-adviser.com/pcas/v1/questions/{product}/{origin}</pre>
+<h4 id="example-response-1">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{user}"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{question_id}"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"{question_body}"</span>,
+  <span class="hljs-attr">"product"</span>: <span class="hljs-string">"{product}"</span>,
+  <span class="hljs-attr">"quantity"</span>: <span class="hljs-string">"{quantity}"</span>,
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>
+}</pre>
+</div></div><div data-title="Answer a question" class="keyline-top section contain clearfix " data-reactid="23"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="24"><h3 id="answer-a-question">Answer a question</h3>
+<p>Answer a given question.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="25"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>POST</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/questions/<span class="strong">{question}</span>/answer</div>
+    </div>
+<h4 id="example-request-2">Example request</h4>
+<pre class='hljs'>curl -X POST https://pocket-consumption-adviser.com/pcas/v1/{question}/answer \
+  -X PUT \
+  -d @file.json</pre>
+<h4 id="example-request-body">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"answer"</span>: <span class="hljs-string">"yes"</span>
+}</pre>
+<h4 id="example-response-2">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{user}"</span>,
+  <span class="hljs-attr">"question"</span>: <span class="hljs-string">"{question_id}"</span>,
+  <span class="hljs-attr">"answer"</span>: <span class="hljs-string">"yes"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>
+}</pre>
+</div></div><div data-title="Retrieve a pca" class="keyline-top section contain clearfix " data-reactid="26"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="27"><h3 id="retrieve-a-pca">Retrieve a pca</h3>
+<p>Returns a single pca.</p>
+<p>Retrieve information about an existing pca.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="28"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span></div>
+    </div>
+<h4 id="example-request-3">Example request</h4>
+<pre class='hljs'>curl https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}</pre>
+<h4 id="example-response-3">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{pca_id}"</span>,
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
+  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
+}</pre>
+</div></div><div data-title="Update a pca" class="keyline-top section contain clearfix " data-reactid="29"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="30"><h3 id="update-a-pca">Update a pca</h3>
+<p>Updates the properties of a particular pca.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>(optional) the name of the pca</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>(optional) a description of the pca</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="31"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PATCH</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span></div>
+    </div>
+<h4 id="example-request-4">Example request</h4>
+<pre class='hljs'>curl --request PATCH https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id} \
+  -d @data.json</pre>
+<h4 id="example-request-body-1">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>
+}</pre>
+<h4 id="example-response-4">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"owner"</span>: <span class="hljs-string">"{username}"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{pca_id}"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"foo"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"bar"</span>,
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"{timestamp}"</span>,
+  <span class="hljs-attr">"modified"</span>: <span class="hljs-string">"{timestamp}"</span>
+}</pre>
+</div></div><div data-title="Delete a pca" class="keyline-top section contain clearfix " data-reactid="32"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="33"><h3 id="delete-a-pca">Delete a pca</h3>
+<p>Deletes a pca, including all wibbles it contains.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="34"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span></div>
+    </div>
+<h4 id="example-request-5">Example request</h4>
+<pre class='hljs'>curl -X DELETE https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}</pre>
+<h4 id="example-response-5">Example response</h4>
+<blockquote>
+<p>HTTP 204</p>
+</blockquote>
+</div></div><div data-title="List wibbles" class="keyline-top section contain clearfix " data-reactid="35"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="36"><h3 id="list-wibbles">List wibbles</h3>
+<p>List all the wibbles in a pca. The response body will be a
+pcaCollection.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="37"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span>/wibbles</div>
+    </div>
+<h4 id="example-request-6">Example request</h4>
+<pre class='hljs'>curl https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}/wibbles</pre>
+<h4 id="example-response-6">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+  <span class="hljs-attr">"wibbles"</span>: [
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
+      }
+    },
+    {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
+      }
+    }
+  ]
+}</pre>
+</div></div><div data-title="Insert or update a wibble" class="keyline-top section contain clearfix " data-reactid="38"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="39"><h3 id="insert-or-update-a-wibble">Insert or update a wibble</h3>
+<p>Inserts or updates a wibble in a pca. If there's already a wibble
+with the given ID in the pca, it will be replaced. If there isn't
+a wibble with that ID, a new wibble is created.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>the id of an existing wibble in the pca</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="40"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
+    </div>
+<h4 id="example-request-7">Example request</h4>
+<pre class='hljs'>curl https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}/wibbles/{wibble_id} \
+  -X PUT \
+  -d @file.geojson</pre>
+<h4 id="example-request-body-2">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
+  }
+}</pre>
+<h4 id="example-response-7">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
+  }
+}</pre>
+</div></div><div data-title="Retrieve a wibble" class="keyline-top section contain clearfix " data-reactid="41"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="42"><h3 id="retrieve-a-wibble">Retrieve a wibble</h3>
+<p>Retrieves a wibble in a pca.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="43"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
+    </div>
+<h4 id="example-request-8">Example request</h4>
+<pre class='hljs'>curl https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}/wibbles/{wibble_id}</pre>
+<h4 id="example-response-8">Example response</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"{wibble_id}"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"pca"</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"prop0"</span>: <span class="hljs-string">"value0"</span>
+  }
+}</pre>
+</div></div><div data-title="Delete a wibble" class="keyline-top section contain clearfix " data-reactid="44"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="45"><h3 id="delete-a-wibble">Delete a wibble</h3>
+<p>Removes a wibble from a pca.</p>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="46"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>DELETE</div>
+      <div class='pad0 code small endpoint-url'>/pcas/v1/<span class="strong">{username}</span>/<span class="strong">{pca_id}</span>/wibbles/<span class="strong">{wibble_id}</span></div>
+    </div>
+<h4 id="example-request-9">Example request</h4>
+<pre class='hljs'>curl -X DELETE https://pocket-consumption-adviser.com/pcas/v1/{username}/{pca_id}/wibbles/{wibble_id}</pre>
+<h4 id="example-response-9">Example response</h4>
+<blockquote>
+<p>HTTP 204</p>
+</blockquote>
+</div></div></div></div></div><div class="fixed-top space-left16" data-reactid="47"><div class="events fill-light bottom-shadow pad1 col6 pin-topright  " data-reactid="48"><div class="space-right1 small quiet inline" data-reactid="49">Show examples in:</div><div class="rounded-toggle inline short" data-reactid="50"><a class="strong active" data-reactid="51">cURL</a><a class="strong " data-reactid="52">cli</a><a class="strong " data-reactid="53">Python</a><a class="strong " data-reactid="54">JS</a><a class="strong " data-reactid="55">Java</a><a class="strong " data-reactid="56">ObjC</a><a class="strong " data-reactid="57">Swift</a></div><div class="fr pad0" data-reactid="58"><a title="Display as 1 column" style="cursor:pointer;" class="icon quiet caret-left pad0 fill-darken0 round" data-reactid="59"></a></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="60"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="61"></a><div class="strong small pad0
+          
+          space-left4 line-height15" data-reactid="62">Pocket Consumption Adviser API doc</div></div></div></div><!--STOP-->
+    <script src='bundle.js'></script>
+  </body>
+</html>

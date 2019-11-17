@@ -80,6 +80,7 @@ target/
 
 ### Django ###
 *.log
+
 *.pot
 *.pyc
 __pycache__/
@@ -91,3 +92,5 @@ db.sqlite3
 #Idea
 .idea
 /.vscode
+
+./documentation/docbox
